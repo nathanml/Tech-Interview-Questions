@@ -2,7 +2,10 @@ package isBalanced;
 /*Method for determining if all parentheses/brackets are closed
 Input is a strings of these characters "(){}[]". Any other string not accepted
 Valid Inputs: "[](){}", "[{()}]"
-Invalid Inputs: "([]", "([)]"*/
+Invalid Inputs: "([]", "([)]"
+
+In this file I define the Stack class using generics
+then define the method isBalanced*/
 
 import java.util.EmptyStackException;
 
