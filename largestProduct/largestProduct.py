@@ -14,20 +14,27 @@ def largestProduct(A: list):
     m = None
     # If even number of negatives
     if num_negatives % 2 == 0:
-        m = A[0]
-        for i in range(len(A)):
-            # If 0, remove that element
-            if A[i] == 0:
-                m = A[i]
-            if m is None and A[i] > 0:
-                m = A[i]
-            # If smallest positive, update product and minimum m
-            elif 0 < A[i] < m:
-                product *= m
-                m = A[i]
-            # Else update product
-            else:
-                product *= A[i]
+        # If list consists of only negatives, remove min element
+        if num_negatives == len(A):
+            m = min(A)
+            for i in range(len(A)):
+                if A[i] != m:
+                    product *= m
+        else:
+            m = A[0]
+            for i in range(len(A)):
+                # If 0, remove that element
+                if A[i] == 0:
+                    m = A[i]
+                if m is None and A[i] > 0:
+                    m = A[i]
+                # If smallest positive, update product and minimum m
+                elif 0 < A[i] < m:
+                    product *= m
+                    m = A[i]
+                # Else update product
+                else:
+                    product *= A[i]
     # If odd nuber of negatives
     else:
         for i in range(len(A)):
@@ -54,11 +61,17 @@ def countNegatives(A: list):
 t1 = [1, 5, -10, 2, -4, 9]
 t2 = [5, -1, -4, -8, -2, -4, 10, 2, 6, 9]
 t3 = [5, -1, 2, 9, -2, 1, 10, 2, 6, 9]
+t4 = [-12, -3, -4, -10]
+t5 = [3, 10, 13, 2]
 
 print("Test List1: {}", t1)
 print("Test List2: {}", t2)
 print("Test List3: {}", t3)
+print("Test List4: {}", t4)
+print("Test List5: {}", t5)
 
 print("Test Solution 1: ", largestProduct(t1))
 print("Test Solution 2: ", largestProduct(t2))
 print("Test Solution 3: ", largestProduct(t3))
+print("Test Solution 4: ", largestProduct(t4))
+print("Test Solution 5: ", largestProduct(t5))
