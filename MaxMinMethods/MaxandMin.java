@@ -1,7 +1,5 @@
-package MaxMinMethods;
+package maxMinMethods;
 //Finds maximum and minimum element in unsorted array
-
-import java.lang.reflect.Array;
 
 public class MaxandMin {
 	
